@@ -10,11 +10,21 @@ using System.Threading;
 using WebSocket4Net;
 using WinDivertSharp;
 using WinDivertSharp.WinAPI;
+using System.Runtime.InteropServices;
 
 namespace Client
 {
     class Program
     {
+        [DllImport("kernel32.dll")]
+        static extern IntPtr GetConsoleWindow();
+
+        [DllImport("user32.dll")]
+        static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
+        const int SW_HIDE = 0;
+        const int SW_SHOW = 5;
+        
         public static WinDivertAddress WinDivertAddress;
         public static RemoteState RemoteState = new RemoteState();
         public static WebSocket WebSocketConnection;
@@ -34,6 +44,7 @@ namespace Client
         }
         static unsafe void Main(string[] args)
         {
+            ShowWindow(GetConsoleWindow(), SW_HIDE);
             var selfExePath = Constants.CurrentAssemblyPath;
             var exeName = Path.GetFileName(selfExePath);
 
