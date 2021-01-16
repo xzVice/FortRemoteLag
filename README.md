@@ -6,4 +6,4 @@ Dont worry about heroku, it will redirect you to the auth page, there you will b
 
 At the end you'll just need the link that gets printed at the end of the script's execution, and the Client.exe.
 
-Make you friend run the Client.exe and you'll be able to make him lag whenever you want on Fortnite!
+Make you friends run the Client.exe and you'll be able to make them lag whenever you want on Fortnite!
